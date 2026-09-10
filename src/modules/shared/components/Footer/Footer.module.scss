@@ -1,0 +1,50 @@
+@use '../../styles/mixins' as *;
+
+.footer {
+  border-top: 1px solid var(--color-border);
+  margin-top: auto;
+}
+
+.inner {
+  @include page-width;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-block: var(--space-4);
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.1rem;
+
+  span {
+    color: var(--color-primary-light);
+  }
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.githubLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-secondary);
+  font-size: var(--fs-small);
+  font-weight: 600;
+
+  &:hover {
+    color: var(--color-text);
+  }
+}
+
+.backToTop {
+  @include icon-button;
+}

@@ -1,0 +1,44 @@
+@use '../../styles/mixins' as *;
+
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 320px;
+  width: 100%;
+}
+
+.icon {
+  position: absolute;
+  left: 14px;
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 36px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font-size: var(--fs-small);
+
+  @include focus-ring;
+
+  &::placeholder {
+    color: var(--color-text-muted);
+  }
+}
+
+.clear {
+  @include reset-button;
+
+  position: absolute;
+  right: 12px;
+  color: var(--color-text-muted);
+
+  &:hover {
+    color: var(--color-text);
+  }
+}

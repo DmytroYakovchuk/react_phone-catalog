@@ -1,0 +1,71 @@
+@use '../../styles/mixins' as *;
+
+.wrapper {
+  position: relative;
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  aspect-ratio: 16 / 7;
+  background-color: var(--color-surface);
+}
+
+.track {
+  display: flex;
+  height: 100%;
+  transition: transform var(--transition-base);
+}
+
+.slide {
+  flex: 0 0 100%;
+  height: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.navButton {
+  @include icon-button;
+
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(20, 16, 31, 0.55);
+  border-color: transparent;
+
+  &:hover {
+    background-color: rgba(20, 16, 31, 0.8);
+  }
+}
+
+.prev {
+  left: var(--space-3);
+}
+
+.next {
+  right: var(--space-3);
+}
+
+.dashes {
+  position: absolute;
+  bottom: var(--space-3);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: var(--space-2);
+}
+
+.dash {
+  @include reset-button;
+
+  width: 24px;
+  height: 4px;
+  border-radius: var(--radius-pill);
+  background-color: rgba(255, 255, 255, 0.35);
+  transition: background-color var(--transition-fast);
+
+  &.active {
+    background-color: var(--color-primary-light);
+  }
+}
