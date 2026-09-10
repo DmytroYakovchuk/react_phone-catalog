@@ -2,7 +2,7 @@ import { request } from '../utils/httpClient';
 import type { Product, ProductCategory, ProductDetails } from '../types';
 
 export function getProducts() {
-  return request<Product[]>('/products.json');
+  return request<Product[]>(`${import.meta.env.BASE_URL}products.json`);
 }
 
 export async function getProductsByCategory(category: ProductCategory) {
