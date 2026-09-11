@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './modules/shared/context/CartContext';
 import { FavoritesProvider } from './modules/shared/context/FavoritesContext';
 import { ThemeProvider } from './modules/shared/context/ThemeContext';
@@ -19,7 +19,7 @@ export const App = () => (
     <CartProvider>
       <FavoritesProvider>
         <SearchProvider>
-          <HashRouter basename={import.meta.env.BASE_URL}>
+          <BrowserRouter basename={import.meta.env.BASE_URL}>
             <Routes>
               <Route path="/" element={<Layout />}>
                 <Route index element={<HomePage />} />
@@ -35,7 +35,7 @@ export const App = () => (
                 <Route path="*" element={<NotFoundPage />} />
               </Route>
             </Routes>
-          </HashRouter>
+          </BrowserRouter>
         </SearchProvider>
       </FavoritesProvider>
     </CartProvider>
