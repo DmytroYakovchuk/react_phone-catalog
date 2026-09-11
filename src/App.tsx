@@ -19,7 +19,7 @@ export const App = () => (
     <CartProvider>
       <FavoritesProvider>
         <SearchProvider>
-          <HashRouter basename={import.meta.env.BASE_URL}>
+          <HashRouter>
             <Routes>
               <Route path="/" element={<Layout />}>
                 <Route index element={<HomePage />} />
