@@ -2,7 +2,7 @@ import { request } from '../utils/httpClient';
 import type { Product, ProductCategory, ProductDetails } from '../types';
 
 export function getProducts() {
-  return request<Product[]>(`${import.meta.env.BASE_URL}products.json`);
+  return request<Product[]>('/products.json');
 }
 
 export async function getProductsByCategory(category: ProductCategory) {
@@ -20,9 +20,6 @@ export function getProductDetailsByCategory(
   );
 }
 
-// Product Details page is routed as /product/:productId (no category in the
-// URL), so we first resolve which category the id belongs to via the
-// lightweight products list, then load the full details for that category.
 export async function getProductDetails(productId: string) {
   const products = await getProducts();
   const match = products.find(item => item.itemId === productId);
@@ -34,8 +31,6 @@ export async function getProductDetails(productId: string) {
   return getProductDetailsByCategory(match.category, productId);
 }
 
-// Picks a handful of random products, excluding the current one,
-// for the "You may also like" block.
 export function getSuggestedProducts(
   allProducts: Product[],
   currentItemId: string,
