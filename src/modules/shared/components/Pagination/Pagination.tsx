@@ -21,11 +21,14 @@ function getCompactPages(
     1,
     pageCount,
     currentPage,
-    ...Array.from({ length: siblings * 2 },
-      (_, i) => currentPage - siblings + i),
+    ...Array.from(
+      { length: siblings * 2 },
+      (_, i) => currentPage - siblings + i,
+    ),
   ]);
 
-  const pages = [...range].filter(page => page >= 1 && page <= pageCount)
+  const pages = [...range]
+    .filter(page => page >= 1 && page <= pageCount)
     .sort((a, b) => a - b);
 
   const result: (number | typeof ELLIPSIS)[] = [];
@@ -33,6 +36,7 @@ function getCompactPages(
   pages.forEach((page, index) => {
     if (index === 0) {
       result.push(page);
+
       return;
     }
 

@@ -7,6 +7,7 @@ import { usePageSearch } from '../../context/SearchContext';
 import { useDebounce } from '../../hooks/useDebounce';
 import { ProductsList } from '../ProductsList';
 import { Pagination } from '../Pagination';
+import { Icon } from '../Icon';
 import styles from './CategoryPage.module.scss';
 
 interface Props {
@@ -113,43 +114,51 @@ export const CategoryPage: React.FC<Props> = ({ category, title }) => {
         <div className={styles.toolbar}>
           <label className={styles.field}>
             <span className={styles.label}>Sort by</span>
-            <select
-              className={styles.select}
-              value={sort || 'default'}
-              onChange={event =>
-                updateParam(
-                  'sort',
-                  event.target.value,
-                  event.target.value === 'default',
-                )
-              }
-            >
-              <option value="default">Newest</option>
-              <option value="age">Newest (by year)</option>
-              <option value="title">Alphabetically</option>
-              <option value="price">Cheapest</option>
-            </select>
+            <div className={styles.selectWrapper}>
+              <select
+                className={styles.select}
+                value={sort || 'default'}
+                onChange={event =>
+                  updateParam(
+                    'sort',
+                    event.target.value,
+                    event.target.value === 'default',
+                  )
+                }
+              >
+                <option value="default">Newest</option>
+                <option value="age">Newest (by year)</option>
+                <option value="title">Alphabetically</option>
+                <option value="price">Cheapest</option>
+              </select>
+              <Icon name="chevron-down" size={16} className={styles.selectIcon} />
+            </div>
           </label>
 
           <label className={styles.field}>
             <span className={styles.label}>Items on page</span>
-            <select
-              className={styles.select}
-              value={perPageParam}
-              onChange={event =>
-                updateParam(
-                  'perPage',
-                  event.target.value,
-                  event.target.value === 'all',
-                )
-              }
-            >
-              {PER_PAGE_OPTIONS.map(option => (
-                <option key={option} value={option}>
-                  {option === 'all' ? 'All' : option}
-                </option>
-              ))}
-            </select>
+            <div className={styles.selectWrapper}>
+              <select
+                className={styles.select}
+                value={perPageParam}
+                onChange={event =>
+                  updateParam(
+                    'perPage',
+                    event.target.value,
+                    event.target.value === 'all',
+                  )
+                }
+              >
+                {PER_PAGE_OPTIONS.map(option => (
+                  <option key={option} value={option}>
+                    {option === 'all' ? 'All' : option}
+                  </option>
+                ))}
+              </select>
+              <Icon name="chevron-down" size={16}
+                className={styles.selectIcon}
+              />
+            </div>
           </label>
         </div>
       )}

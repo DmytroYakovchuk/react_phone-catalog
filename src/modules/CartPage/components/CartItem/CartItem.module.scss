@@ -18,6 +18,14 @@
   flex-shrink: 0;
 }
 
+.info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex: 1;
+  min-width: 0;
+}
+
 .image {
   width: 64px;
   height: 64px;
@@ -30,6 +38,10 @@
   font-size: var(--fs-small);
   font-weight: 500;
   min-width: 0;
+
+  &:hover {
+    color: var(--color-primary-light);
+  }
 }
 
 .quantity {

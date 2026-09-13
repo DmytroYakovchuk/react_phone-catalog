@@ -42,4 +42,4 @@ export function getColorHex(color: string): string {
   const key = color.toLowerCase().replace(/\s+/g, '');
 
   return COLOR_HEX_MAP[key] || key;
-};
+}

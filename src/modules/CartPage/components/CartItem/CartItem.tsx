@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import type { CartItem as CartItemType } from '../../../shared/types';
 import { Icon } from '../../../shared/components/Icon';
+import { getImageUrl } from '../../../shared/utils/getImageUrl';
 import styles from './CartItem.module.scss';
 
 interface Props {
@@ -24,13 +26,14 @@ export const CartItem: React.FC<Props> = ({
       <Icon name="close" size={16} />
     </button>
 
-    <img
-      src={item.product.image}
-      alt={item.product.name}
-      className={styles.image}
-    />
-
-    <p className={styles.name}>{item.product.name}</p>
+    <Link to={`/product/${item.product.itemId}`} className={styles.info}>
+      <img
+        src={getImageUrl(item.product.image)}
+        alt={item.product.name}
+        className={styles.image}
+      />
+      <p className={styles.name}>{item.product.name}</p>
+    </Link>
 
     <div className={styles.quantity}>
       <button
@@ -41,6 +44,15 @@ export const CartItem: React.FC<Props> = ({
         onClick={() => onQuantityChange(item.id, item.quantity - 1)}
       >
         −
+      </button>
+      <span className={styles.qtyValue}>{item.quantity}</span>
+      <button
+        type="button"
+        className={styles.qtyButton}
+        aria-label="Increase quantity"
+        onClick={() => onQuantityChange(item.id, item.quantity - 1)}
+      >
+        -
       </button>
       <span className={styles.qtyValue}>{item.quantity}</span>
       <button
