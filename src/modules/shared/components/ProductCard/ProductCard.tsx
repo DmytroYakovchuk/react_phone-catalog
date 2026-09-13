@@ -13,7 +13,7 @@ interface Props {
 }
 
 export const ProductCard: React.FC<Props> = ({ product }) => {
-  const { isInCart, addToCart } = useCart();
+  const { isInCart, addToCart, removeFromCart } = useCart();
   const { isFavorite, toggleFavorite } = useFavorites();
 
   const inCart = isInCart(product.itemId);
@@ -64,7 +64,13 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
         <button
           type="button"
           className={cn(styles.addButton, { [styles.added]: inCart })}
-          onClick={() => addToCart(product)}
+          onClick={() => {
+            if (inCart) {
+              removeFromCart(product.itemId);
+            } else {
+              addToCart(product);
+            }
+          }}
         >
           {inCart ? 'Added to cart' : 'Add to cart'}
         </button>

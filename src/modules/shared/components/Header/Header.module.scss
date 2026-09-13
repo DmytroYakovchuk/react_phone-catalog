@@ -89,16 +89,38 @@
   top: -6px;
   right: -6px;
   min-width: 18px;
-  height: 18px;
+  height: 20px;
   padding: 0 4px;
+  border: 2px solid var(--color-bg);
   border-radius: var(--radius-pill);
   background-color: var(--color-primary);
   color: #fff;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
+  line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+  margin-inline: auto; // центрирует сам компактный блок внутри родителя
+}
+
+.ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--color-text-secondary);
+  font-weight: 600;
 }
 
 .menuButton {

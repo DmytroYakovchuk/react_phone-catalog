@@ -2,7 +2,8 @@ import React from 'react';
 import { Icon } from '../Icon';
 import styles from './Footer.module.scss';
 
-const GITHUB_REPO_URL = 'https://github.com/your-username/react_phone-catalog';
+const GITHUB_REPO_URL =
+  'https://github.com/DmytroYakovchuk/react_phone-catalog';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {

@@ -26,3 +26,20 @@ export function filterByQuery(products: Product[], query: string) {
     product.name.toLowerCase().includes(normalized),
   );
 }
+
+const COLOR_HEX_MAP: Record<string, string> = {
+  spacegray: '#535150',
+  spaceblack: '#3b3b3c',
+  midnight: '#1e1e24',
+  midnightgreen: '#5b6459',
+  graphite: '#54524f',
+  sierrablue: '#a7c6da',
+  starlight: '#f0e5d3',
+  rosegold: '#f4c2c2',
+};
+
+export function getColorHex(color: string): string {
+  const key = color.toLowerCase().replace(/\s+/g, '');
+
+  return COLOR_HEX_MAP[key] || key;
+};

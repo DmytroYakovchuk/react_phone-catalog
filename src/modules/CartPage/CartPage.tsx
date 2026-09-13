@@ -30,7 +30,7 @@ export const CartPage: React.FC = () => {
       {cartItems.length === 0 ? (
         <p className={styles.empty}>Your cart is empty</p>
       ) : (
-        <>
+        <div className={styles.layout}>
           <ul className={styles.list}>
             {cartItems.map(item => (
               <CartItem
@@ -55,7 +55,7 @@ export const CartPage: React.FC = () => {
               Checkout
             </button>
           </div>
-        </>
+        </div>
       )}
     </div>
   );

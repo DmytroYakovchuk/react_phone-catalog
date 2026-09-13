@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { getColorHex } from '../shared/utils/productHelpers';
 import cn from 'classnames';
 import {
   getProductDetails,
@@ -130,7 +131,7 @@ export const ProductDetailsPage: React.FC = () => {
                       className={cn(styles.colorSwatch, {
                         [styles.active]: color === details.color,
                       })}
-                      style={{ backgroundColor: color }}
+                      style={{ backgroundColor: getColorHex(color) }}
                       aria-label={color}
                     />
                   </label>
