@@ -19,8 +19,8 @@
 }
 
 .sectionTitle {
-  font-size: var(--fs-h2);
   margin-bottom: var(--space-4);
+  font-size: var(--fs-h2);
 }
 
 .categoryGrid {
@@ -40,8 +40,10 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+
   min-height: 220px;
   padding: var(--space-4);
+
   background: linear-gradient(
     160deg,
     var(--color-surface-raised),
@@ -50,11 +52,11 @@
 }
 
 .categoryName {
-  font-size: var(--fs-h3);
   margin-bottom: var(--space-1);
+  font-size: var(--fs-h3);
 }
 
 .categoryCount {
-  color: var(--color-text-secondary);
   font-size: var(--fs-small);
+  color: var(--color-text-secondary);
 }

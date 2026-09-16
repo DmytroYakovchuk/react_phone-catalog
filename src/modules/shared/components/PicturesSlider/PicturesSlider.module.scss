@@ -2,9 +2,12 @@
 
 .wrapper {
   position: relative;
-  border-radius: var(--radius-l);
+
   overflow: hidden;
+
   aspect-ratio: 16 / 7;
+  border-radius: var(--radius-l);
+
   background-color: var(--color-surface);
 }
 
@@ -31,8 +34,10 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(20, 16, 31, 0.55);
+
   border-color: transparent;
+
+  background-color: rgba(20, 16, 31, 0.55);
 
   &:hover {
     background-color: rgba(20, 16, 31, 0.8);
@@ -52,6 +57,7 @@
   bottom: var(--space-3);
   left: 50%;
   transform: translateX(-50%);
+
   display: flex;
   gap: var(--space-2);
 }
@@ -62,7 +68,9 @@
   width: 24px;
   height: 4px;
   border-radius: var(--radius-pill);
+
   background-color: rgba(255, 255, 255, 0.35);
+
   transition: background-color var(--transition-fast);
 
   &.active {

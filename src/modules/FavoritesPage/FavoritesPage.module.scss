@@ -7,12 +7,12 @@
 }
 
 .title {
-  font-size: var(--fs-h2);
   margin-bottom: var(--space-1);
+  font-size: var(--fs-h2);
 }
 
 .count {
-  color: var(--color-text-secondary);
-  font-size: var(--fs-small);
   margin-bottom: var(--space-5);
+  font-size: var(--fs-small);
+  color: var(--color-text-secondary);
 }

@@ -1,8 +1,8 @@
 @use '../../styles/mixins' as *;
 
 .footer {
-  border-top: 1px solid var(--color-border);
   margin-top: auto;
+  border-top: 1px solid var(--color-border);
 }
 
 .inner {
@@ -10,16 +10,17 @@
 
   display: flex;
   flex-wrap: wrap;
+  gap: var(--space-3);
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-3);
+
   padding-block: var(--space-4);
 }
 
 .logo {
   font-family: var(--font-display);
-  font-weight: 800;
   font-size: 1.1rem;
+  font-weight: 800;
 
   span {
     color: var(--color-primary-light);
@@ -28,17 +29,18 @@
 
 .links {
   display: flex;
-  align-items: center;
   gap: var(--space-4);
+  align-items: center;
 }
 
 .githubLink {
   display: inline-flex;
-  align-items: center;
   gap: var(--space-2);
-  color: var(--color-text-secondary);
+  align-items: center;
+
   font-size: var(--fs-small);
   font-weight: 600;
+  color: var(--color-text-secondary);
 
   &:hover {
     color: var(--color-text);

@@ -11,9 +11,9 @@
 }
 
 .count {
-  color: var(--color-text-secondary);
-  font-size: var(--fs-small);
   margin-bottom: var(--space-5);
+  font-size: var(--fs-small);
+  color: var(--color-text-secondary);
 }
 
 .toolbar {
@@ -40,25 +40,29 @@
 }
 
 .selectIcon {
+  pointer-events: none;
+
   position: absolute;
   top: 50%;
   right: 14px;
   transform: translateY(-50%);
+
   color: var(--color-text-muted);
-  pointer-events: none;
 }
 
 .select {
   width: 100%;
   padding: 10px 36px 10px 14px;
-  border-radius: var(--radius-m);
   border: 1px solid var(--color-border);
-  background-color: var(--color-surface);
-  color: var(--color-text);
+  border-radius: var(--radius-m);
+
   font-size: var(--fs-small);
-  appearance: none;
+  color: var(--color-text);
+
   -webkit-appearance: none;
   -moz-appearance: none;
+  appearance: none;
+  background-color: var(--color-surface);
 
   @include focus-ring;
 }

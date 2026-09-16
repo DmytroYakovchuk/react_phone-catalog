@@ -131,7 +131,11 @@ export const CategoryPage: React.FC<Props> = ({ category, title }) => {
                 <option value="title">Alphabetically</option>
                 <option value="price">Cheapest</option>
               </select>
-              <Icon name="chevron-down" size={16} className={styles.selectIcon} />
+              <Icon
+                name="chevron-down"
+                size={16}
+                className={styles.selectIcon}
+              />
             </div>
           </label>
 
@@ -155,7 +159,9 @@ export const CategoryPage: React.FC<Props> = ({ category, title }) => {
                   </option>
                 ))}
               </select>
-              <Icon name="chevron-down" size={16}
+              <Icon
+                name="chevron-down"
+                size={16}
                 className={styles.selectIcon}
               />
             </div>

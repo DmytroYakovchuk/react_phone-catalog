@@ -13,12 +13,15 @@
 }
 
 @mixin reset-button {
-  border: none;
-  background: none;
   cursor: pointer;
+
+  padding: 0;
+  border: none;
+
   font: inherit;
   color: inherit;
-  padding: 0;
+
+  background: none;
 
   @include focus-ring;
 }
@@ -28,17 +31,21 @@
   @include focus-ring;
 
   display: inline-flex;
+  gap: var(--space-2);
   align-items: center;
   justify-content: center;
-  gap: var(--space-2);
+
   height: 40px;
   padding: 0 16px;
   border-radius: var(--radius-pill);
-  background-color: $bg;
-  color: var(--color-text);
-  font-weight: 600;
-  white-space: nowrap;
+
   font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--color-text);
+  white-space: nowrap;
+
+  background-color: $bg;
+
   transition:
     background-color var(--transition-fast),
     transform var(--transition-fast),
@@ -46,8 +53,8 @@
     border-color var(--transition-fast);
 
    &:disabled {
-    opacity: 0.5;
     cursor: not-allowed;
+    opacity: 0.5;
   }
 
   &:hover:not(:disabled) {
@@ -65,38 +72,45 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   width: 40px;
   height: 40px;
-  border-radius: var(--radius-m);
   border: 1px solid var(--color-border);
+  border-radius: var(--radius-m);
+
   color: var(--color-icon);
+
   transition:
     color var(--transition-fast),
     border-color var(--transition-fast),
     background-color var(--transition-fast);
 
   &:hover {
-    color: var(--color-icon-hover);
     border-color: var(--color-primary);
+    color: var(--color-icon-hover);
   }
 }
 
 @mixin visually-hidden {
   position: absolute;
+
+  overflow: hidden;
+
   width: 1px;
   height: 1px;
-  padding: 0;
   margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
+  padding: 0;
   border: 0;
+
+  white-space: nowrap;
+
+  clip: rect(0, 0, 0, 0);
 }
 
 @mixin card-surface {
-  background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-l);
+  background-color: var(--color-surface);
   box-shadow: var(--shadow-card);
 }
 
@@ -109,8 +123,8 @@
 }
 
 @mixin truncate-lines($lines: 2) {
-  display: -webkit-box;
-  -webkit-line-clamp: $lines;
-  -webkit-box-orient: vertical;
   overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
 }

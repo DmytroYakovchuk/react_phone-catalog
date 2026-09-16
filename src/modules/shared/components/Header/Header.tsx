@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import cn from 'classnames';
 import { useCart } from '../../context/CartContext';
@@ -25,6 +25,14 @@ export const Header: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
   const search = useSearchContext();
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = mobileNavOpen ? 'hidden' : '';
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileNavOpen]);
 
   return (
     <header className={styles.header}>

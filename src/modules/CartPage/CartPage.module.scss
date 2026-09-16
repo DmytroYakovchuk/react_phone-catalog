@@ -7,15 +7,15 @@
 }
 
 .title {
-  font-size: var(--fs-h2);
   margin-bottom: var(--space-5);
+  font-size: var(--fs-h2);
 }
 
 .empty {
   padding: var(--space-7) 0;
-  text-align: center;
   font-size: var(--fs-h3);
   color: var(--color-text-secondary);
+  text-align: center;
 }
 
 .layout {
@@ -33,36 +33,36 @@
 
 .list {
   flex: 1;
-  min-width: 0;
   width: 100%;
+  min-width: 0;
 }
 
 .summary {
   @include card-surface;
 
+  width: 100%;
   padding: var(--space-4);
-  text-align: center;
-  width: 100%;  
+  text-align: center;  
 
 @media (min-width: 1024px) {
-    width: 320px;
-    flex-shrink: 0;
     position: sticky;
     top: calc(var(--header-height) + var(--space-4));
+    flex-shrink: 0;
+    width: 320px;
   }
 }
 
 .total {
+  margin-bottom: var(--space-1);
   font-family: var(--font-display);
   font-size: var(--fs-h1);
   font-weight: 800;
-  margin-bottom: var(--space-1);
 }
 
 .totalCount {
-  color: var(--color-text-secondary);
-  font-size: var(--fs-small);
   margin-bottom: var(--space-4);
+  font-size: var(--fs-small);
+  color: var(--color-text-secondary);
 }
 
 .checkoutButton {

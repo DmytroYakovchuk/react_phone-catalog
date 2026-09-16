@@ -4,12 +4,14 @@
   @include reset-button;
 
   display: inline-flex;
-  align-items: center;
   gap: var(--space-1);
-  color: var(--color-text-secondary);
+  align-items: center;
+
+  margin-bottom: var(--space-4);
+
   font-size: var(--fs-small);
   font-weight: 600;
-  margin-bottom: var(--space-4);
+  color: var(--color-text-secondary);
 
   &:hover {
     color: var(--color-primary-light);

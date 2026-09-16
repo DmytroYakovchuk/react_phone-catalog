@@ -2,9 +2,10 @@
 
 .wrapper {
   display: flex;
+  gap: var(--space-2);
   align-items: center;
   justify-content: center;
-  gap: var(--space-2);
+
   margin-top: var(--space-6);
 }
 
@@ -12,12 +13,12 @@
   @include icon-button;
 
   &:disabled {
-    opacity: 0.35;
     cursor: not-allowed;
+    opacity: 0.35;
 
     &:hover {
-      color: var(--color-icon);
       border-color: var(--color-border);
+      color: var(--color-icon);
     }
   }
 }
@@ -28,12 +29,14 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   width: 40px;
   height: 40px;
-  border-radius: var(--radius-m);
   border: 1px solid transparent;
-  color: var(--color-text-secondary);
+  border-radius: var(--radius-m);
+
   font-weight: 600;
+  color: var(--color-text-secondary);
 
   &:hover {
     border-color: var(--color-border);
@@ -41,7 +44,7 @@
   }
 
   &.active {
-    background-color: var(--color-primary);
     color: #fff;
+    background-color: var(--color-primary);
   }
 }

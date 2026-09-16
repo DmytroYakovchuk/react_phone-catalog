@@ -2,10 +2,12 @@
 
 .header {
   position: sticky;
-  top: 0;
   z-index: 20;
+  top: 0;
+
   height: var(--header-height);
   border-bottom: 1px solid var(--color-border);
+
   background-color: var(--color-bg);
 }
 
@@ -13,17 +15,17 @@
   @include page-width;
 
   display: flex;
+  gap: var(--space-5);
   align-items: center;
   height: 100%;
-  gap: var(--space-5);
 }
 
 .logo {
   font-family: var(--font-display);
-  font-weight: 800;
   font-size: 1.25rem;
-  letter-spacing: -0.02em;
+  font-weight: 800;
   color: var(--color-text);
+  letter-spacing: -0.02em;
 
   span {
     color: var(--color-primary-light);
@@ -41,10 +43,12 @@
 
 .navLink {
   padding: var(--space-2) 0;
+  border-bottom: 2px solid transparent;
+
   font-size: var(--fs-small);
   font-weight: 600;
   color: var(--color-text-secondary);
-  border-bottom: 2px solid transparent;
+
   transition: color var(--transition-fast);
 
   &:hover {
@@ -52,8 +56,8 @@
   }
 
   &.active {
-    color: var(--color-text);
     border-color: var(--color-primary);
+    color: var(--color-text);
   }
 }
 
@@ -68,8 +72,8 @@
 
 .actions {
   display: flex;
-  align-items: center;
   gap: var(--space-2);
+  align-items: center;
   margin-left: auto;
 
   @media (min-width: 640px) {
@@ -88,27 +92,32 @@
   position: absolute;
   top: -6px;
   right: -6px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   min-width: 18px;
   height: 20px;
   padding: 0 4px;
   border: 2px solid var(--color-bg);
   border-radius: var(--radius-pill);
-  background-color: var(--color-primary);
-  color: #fff;
+
   font-size: 11px;
   font-weight: 700;
   line-height: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: #fff;
+
+  background-color: var(--color-primary);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .wrapper {
   display: inline-flex;
+  gap: var(--space-2);
   align-items: center;
   justify-content: center;
-  gap: var(--space-2);
+
   margin-top: var(--space-6);
   margin-inline: auto; // центрирует сам компактный блок внутри родителя
 }
@@ -117,10 +126,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   width: 40px;
   height: 40px;
-  color: var(--color-text-secondary);
+
   font-weight: 600;
+  color: var(--color-text-secondary);
 }
 
 .menuButton {
@@ -134,11 +145,18 @@
 .mobileNav {
   @include page-width;
 
+  position: fixed;
+  z-index: 30;
+  inset: var(--header-height) 0 0 0;
+
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
-  padding-block: var(--space-3);
-  border-top: 1px solid var(--color-border);
+
+  padding: var(--space-4) var(--page-padding-inline);
+
+  background-color: var(--color-bg);
 
   @media (min-width: 768px) {
     display: none;

@@ -45,7 +45,7 @@ export const ProductDetailsPage: React.FC = () => {
       return;
     }
 
-    setIsLoading(true);
+    setIsLoading(!details);
     setNotFound(false);
 
     getProductDetails(productId)
@@ -60,6 +60,7 @@ export const ProductDetailsPage: React.FC = () => {
       })
       .catch(() => setNotFound(true))
       .finally(() => setIsLoading(false));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productId]);
 
   useEffect(() => {
