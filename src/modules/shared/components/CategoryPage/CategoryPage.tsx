@@ -24,7 +24,7 @@ export const CategoryPage: React.FC<Props> = ({ category, title }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [queryInput, setQueryInput] = useState(searchParams.get('query') || '');
 
-  const sort = (searchParams.get('sort') as SortType) || null;
+  const sort = (searchParams.get('sort') as SortType) || 'age';
   const page = Number(searchParams.get('page')) || 1;
   const perPageParam = searchParams.get('perPage') || 'all';
 
@@ -117,17 +117,13 @@ export const CategoryPage: React.FC<Props> = ({ category, title }) => {
             <div className={styles.selectWrapper}>
               <select
                 className={styles.select}
-                value={sort || 'default'}
+                value={sort}
                 onChange={event =>
-                  updateParam(
-                    'sort',
-                    event.target.value,
-                    event.target.value === 'default',
-                  )
+                  updateParam('sort', event.target.value,
+                    event.target.value === 'age')
                 }
               >
-                <option value="default">Newest</option>
-                <option value="age">Newest (by year)</option>
+                <option value="age">Newest</option>
                 <option value="title">Alphabetically</option>
                 <option value="price">Cheapest</option>
               </select>

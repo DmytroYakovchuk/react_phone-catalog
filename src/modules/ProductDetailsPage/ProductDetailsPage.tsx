@@ -103,7 +103,7 @@ export const ProductDetailsPage: React.FC = () => {
         ]}
       />
 
-      <BackButton />
+      <BackButton to={`/${details.category}`} />
 
       <div className={styles.layout}>
         <ProductImages images={details.images} name={details.name} />

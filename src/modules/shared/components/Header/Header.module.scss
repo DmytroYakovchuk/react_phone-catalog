@@ -14,6 +14,8 @@
 .inner {
   @include page-width;
 
+  width: 100%;
+  padding-inline: var(--page-padding-inline);
   display: flex;
   gap: var(--space-5);
   align-items: center;

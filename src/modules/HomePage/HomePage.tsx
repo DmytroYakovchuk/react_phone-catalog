@@ -10,16 +10,28 @@ import styles from './HomePage.module.scss';
 
 const heroSlides = [
   {
-    image: 'https://placehold.co/1200x525/1d1730/f3f0fb.png?text=New+Phones',
+    image: getImageUrl('img/banner-phones.png'),
     alt: 'Latest smartphones lineup',
+    title: 'Now available in our store!',
+    subtitle: 'Be the first!',
+    ctaLabel: 'Order now',
+    ctaTo: '/phones',
   },
   {
-    image: 'https://placehold.co/1200x525/241c3d/f3f0fb.png?text=Tablets',
+    image: getImageUrl('img/banner-tablets.png'),
     alt: 'Tablets built for creators',
+    title: 'New tablets just dropped',
+    subtitle: 'Check them out',
+    ctaLabel: 'Order now',
+    ctaTo: '/tablets',
   },
   {
-    image: 'https://placehold.co/1200x525/372b57/f3f0fb.png?text=Accessories',
+    image: getImageUrl('img/banner-accessories.png'),
     alt: 'Accessories that complete the set',
+    title: 'Complete your setup',
+    subtitle: 'Shop accessories',
+    ctaLabel: 'Order now',
+    ctaTo: '/accessories',
   },
 ];
 
@@ -46,6 +58,11 @@ export const HomePage: React.FC = () => {
 
   const brandNew = [...products].sort((a, b) => b.year - a.year).slice(0, 12);
 
+  const brandNewNoDiscount = brandNew.map(product => ({
+    ...product,
+    fullPrice: product.price,
+  }));
+
   const countByCategory = (category: Product['category']) =>
     products.filter(p => p.category === category).length;
 
@@ -64,7 +81,8 @@ export const HomePage: React.FC = () => {
         <Loader />
       ) : (
         <>
-          <ProductsSlider title="Hot prices" products={hotPrices} />
+          <ProductsSlider title="Brand new models"
+            products={brandNewNoDiscount} />
 
           <section className={styles.categories}>
             <h2 className={styles.sectionTitle}>Shop by category</h2>
@@ -89,7 +107,7 @@ export const HomePage: React.FC = () => {
             </div>
           </section>
 
-          <ProductsSlider title="Brand new models" products={brandNew} />
+          <ProductsSlider title="Hot prices" products={hotPrices} />
         </>
       )}
     </div>

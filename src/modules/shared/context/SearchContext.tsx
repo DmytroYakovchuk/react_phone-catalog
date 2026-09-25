@@ -15,15 +15,15 @@ interface SearchContextValue {
 
 const SearchContext = createContext<SearchContextValue | null>(null);
 
+type OnChangeCallback = ((value: string) => void) | null;
+
 export const SearchProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [isActive, setIsActive] = useState(false);
   const [query, setQueryState] = useState('');
   const [placeholder, setPlaceholder] = useState('Search');
-  const [onChangeCb, setOnChangeCb] = useState<
-    ((value: string) => void) | null
-  >(null);
+  const [onChangeCb, setOnChangeCb] = useState<OnChangeCallback>(null);
 
   const registerSearch = (
     ph: string,

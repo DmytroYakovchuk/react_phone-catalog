@@ -3,7 +3,7 @@
 .wrapper {
   @include page-width;
 
-  padding-block: var(--space-4) var(--space-7);
+  padding-block: var(--space-4) calc(var(--space-7) + 64px);
 }
 
 .title {

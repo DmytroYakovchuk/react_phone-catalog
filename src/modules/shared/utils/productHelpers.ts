@@ -16,15 +16,17 @@ export function sortProducts(products: Product[], sort: SortType | null) {
 }
 
 export function filterByQuery(products: Product[], query: string) {
-  const normalized = query.trim().toLowerCase();
+  const words = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
 
-  if (!normalized) {
+  if (words.length === 0) {
     return products;
   }
 
-  return products.filter(product =>
-    product.name.toLowerCase().includes(normalized),
-  );
+  return products.filter(product => {
+    const name = product.name.toLowerCase();
+
+    return words.every(word => name.includes(word));
+  });
 }
 
 const COLOR_HEX_MAP: Record<string, string> = {
