@@ -58,7 +58,8 @@ export const CategoryPage: React.FC<Props> = ({ category, title }) => {
 
       return next;
     });
-  }, [debouncedQuery, setSearchParams]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [debouncedQuery]);
 
   usePageSearch(
     true,
@@ -119,8 +120,11 @@ export const CategoryPage: React.FC<Props> = ({ category, title }) => {
                 className={styles.select}
                 value={sort}
                 onChange={event =>
-                  updateParam('sort', event.target.value,
-                    event.target.value === 'age')
+                  updateParam(
+                    'sort',
+                    event.target.value,
+                    event.target.value === 'age',
+                  )
                 }
               >
                 <option value="age">Newest</option>

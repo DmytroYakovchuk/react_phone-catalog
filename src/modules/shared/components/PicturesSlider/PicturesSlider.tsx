@@ -28,9 +28,7 @@ export const PicturesSlider: React.FC<Props> = ({
 }) => {
   const [prevEl, setPrevEl] = useState<HTMLButtonElement | null>(null);
   const [nextEl, setNextEl] = useState<HTMLButtonElement | null>(null);
-  const [paginationEl, setPaginationEl] = useState<HTMLDivElement | null>(
-    null,
-  );
+  const [paginationEl, setPaginationEl] = useState<HTMLDivElement | null>(null);
 
   if (slides.length === 0) {
     return null;

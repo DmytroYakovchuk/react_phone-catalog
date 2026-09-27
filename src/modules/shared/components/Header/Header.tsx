@@ -101,7 +101,7 @@ export const Header: React.FC = () => {
             className={styles.menuButton}
             aria-label="Toggle menu"
             onClick={() => setMobileNavOpen(prev => !prev)}
-          >
+          > 
             <Icon name={mobileNavOpen ? 'close' : 'menu'} />
           </button>
         </div>
@@ -120,17 +120,17 @@ export const Header: React.FC = () => {
               {item.label}
             </NavLink>
           ))}
-
-          {search.isActive && (
-            <div className={styles.mobileSearch}>
-              <SearchInput
-                value={search.query}
-                onChange={search.setQuery}
-                placeholder={search.placeholder}
-              />
-            </div>
-          )}
         </nav>
+      )}
+
+      {search.isActive && (
+        <div className={styles.mobileSearchBar}>
+          <SearchInput
+            value={search.query}
+            onChange={search.setQuery}
+            placeholder={search.placeholder}
+          />
+        </div>
       )}
     </header>
   );

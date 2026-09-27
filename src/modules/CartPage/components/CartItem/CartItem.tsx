@@ -43,15 +43,6 @@ export const CartItem: React.FC<Props> = ({
         disabled={item.quantity <= 1}
         onClick={() => onQuantityChange(item.id, item.quantity - 1)}
       >
-        −
-      </button>
-      <span className={styles.qtyValue}>{item.quantity}</span>
-      <button
-        type="button"
-        className={styles.qtyButton}
-        aria-label="Increase quantity"
-        onClick={() => onQuantityChange(item.id, item.quantity - 1)}
-      >
         -
       </button>
       <span className={styles.qtyValue}>{item.quantity}</span>
