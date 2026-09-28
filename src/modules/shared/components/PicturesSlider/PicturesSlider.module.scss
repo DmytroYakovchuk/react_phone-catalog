@@ -8,17 +8,20 @@
 
 .row {
   display: flex;
-  align-items: center;
   gap: var(--space-3);
+  align-items: center;
 }
 
 .wrapper {
   position: relative;
+
   overflow: hidden;
   flex: 1;
-  min-width: 0;
+
   aspect-ratio: 16 / 7;
+  min-width: 0;
   border-radius: var(--radius-l);
+
   background-color: var(--color-surface);
 }
 
@@ -43,9 +46,11 @@
   top: 50%;
   left: var(--space-4);
   transform: translateY(-50%);
+
   max-width: 260px;
   padding: var(--space-4);
   border-radius: var(--radius-l);
+
   background: linear-gradient(
     135deg,
     rgba(20, 16, 31, 0.9),
@@ -55,41 +60,46 @@
 
 .title {
   margin-bottom: var(--space-2);
-  background: linear-gradient(90deg, #a78bfa, #f472b6);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+
   font-family: var(--font-display);
   font-size: 1.4rem;
   font-weight: 800;
   line-height: 1.2;
+  color: transparent;
+
+  background: linear-gradient(90deg, #a78bfa, #f472b6);
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .subtitle {
   margin-bottom: var(--space-4);
-  color: rgba(255, 255, 255, 0.7);
   font-size: var(--fs-small);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   padding: 10px 24px;
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: var(--radius-pill);
-  color: #fff;
+
   font-size: var(--fs-tiny);
   font-weight: 700;
-  letter-spacing: 0.05em;
+  color: #fff;
   text-transform: uppercase;
+  letter-spacing: 0.05em;
+
   transition:
     background-color var(--transition-fast),
     color var(--transition-fast);
 
   &:hover {
-    background-color: #fff;
     color: #000;
+    background-color: #fff;
   }
 }
 
@@ -101,18 +111,21 @@
 
 .dashes {
   display: flex;
+  gap: var(--space-2);
   align-items: center;
   justify-content: center;
-  gap: var(--space-2);
 }
 
 .dash {
+  cursor: pointer;
+
   width: 24px;
   height: 4px;
   border: none;
   border-radius: var(--radius-pill);
-  cursor: pointer;
+
   background-color: var(--color-border);
+
   transition: background-color var(--transition-fast);
 
   &.active {

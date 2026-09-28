@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useCallback, useContext, useState } from 'react';
 
 interface SearchContextValue {
   isActive: boolean;
@@ -25,22 +25,21 @@ export const SearchProvider: React.FC<{ children: React.ReactNode }> = ({
   const [placeholder, setPlaceholder] = useState('Search');
   const [onChangeCb, setOnChangeCb] = useState<OnChangeCallback>(null);
 
-  const registerSearch = (
-    ph: string,
-    initialQuery: string,
-    onChange: (value: string) => void,
-  ) => {
-    setPlaceholder(ph);
-    setQueryState(initialQuery);
-    setOnChangeCb(() => onChange);
-    setIsActive(true);
-  };
+  const registerSearch = useCallback(
+    (ph: string, initialQuery: string, onChange: (value: string) => void) => {
+      setPlaceholder(ph);
+      setQueryState(initialQuery);
+      setOnChangeCb(() => onChange);
+      setIsActive(true);
+    },
+    [],
+  );
 
-  const unregisterSearch = () => {
+  const unregisterSearch = useCallback(() => {
     setIsActive(false);
     setOnChangeCb(null);
     setQueryState('');
-  };
+  }, []);
 
   const setQuery = (value: string) => {
     setQueryState(value);
@@ -83,17 +82,11 @@ export function usePageSearch(
 
   React.useEffect(() => {
     if (!active) {
-      return undefined;
+      return;
     }
 
     registerSearch(placeholder, query, onChange);
 
     return () => unregisterSearch();
-  }, [active, placeholder]);
-
-  React.useEffect(() => {
-    if (active) {
-      registerSearch(placeholder, query, onChange);
-    }
-  }, [query]);
+  }, [active, placeholder, query, onChange, registerSearch, unregisterSearch]);
 }

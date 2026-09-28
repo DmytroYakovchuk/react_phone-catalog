@@ -101,7 +101,7 @@ export const Header: React.FC = () => {
             className={styles.menuButton}
             aria-label="Toggle menu"
             onClick={() => setMobileNavOpen(prev => !prev)}
-          > 
+          >
             <Icon name={mobileNavOpen ? 'close' : 'menu'} />
           </button>
         </div>

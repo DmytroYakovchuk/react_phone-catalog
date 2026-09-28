@@ -27,7 +27,7 @@ function getCompactPages(
     ),
   ]);
 
-  const pages = [...range]
+  const pages = Array.from(range)
     .filter(page => page >= 1 && page <= pageCount)
     .sort((a, b) => a - b);
 
@@ -93,7 +93,6 @@ export const Pagination: React.FC<Props> = ({
               [styles.active]: page === currentPage,
             })}
             onClick={() => {
-              console.log('Pagination click', page);
               onPageChange(page);
             }}
           >

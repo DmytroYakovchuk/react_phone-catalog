@@ -81,7 +81,8 @@ export const HomePage: React.FC = () => {
         <Loader />
       ) : (
         <>
-          <ProductsSlider title="Brand new models"
+          <ProductsSlider
+            title="Brand new models"
             products={brandNewNoDiscount}
           />
 
